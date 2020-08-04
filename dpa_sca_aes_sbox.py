@@ -32,8 +32,7 @@ def count1s(x):
 # PREPARATION
 # -----------
 
-# hypothesises of hamming weights for keys
-
+# hypothesises of Hamming weights for keys
 hypothesises = [[] for i in range(256)] #1st index: key; 2nd index: plain texts
 for plain in range(256):
     for key in range(256):
