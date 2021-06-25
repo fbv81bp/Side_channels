@@ -68,6 +68,7 @@ second_most_likelies = []
 
 for key in keys:
 
+    
     # simulate measurements:
     leakages = []
     for i in range(run_length):
@@ -103,7 +104,8 @@ for key in keys:
             lowest_error = error
             second_most_likely = most_likely_key
             most_likely_key = assumed_key
-   
+
+            
     most_likely_keys.append(most_likely_key)
     second_most_likelies.append(second_most_likely)
 
