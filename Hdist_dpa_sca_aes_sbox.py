@@ -1,4 +1,4 @@
-# DPA SCA practice on AES S-box based on Hamming distances: single byte implementation
+# CPA SCA practice on AES S-box based on Hamming distances: single byte implementation
 
 import random
 
