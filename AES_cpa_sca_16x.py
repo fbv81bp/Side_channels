@@ -1,7 +1,7 @@
 # DPA SCA practice on AES S-box based on Hamming weights: multiple bytes implementation
 
 import random
-
+import time
 s_box = [
     0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76,
     0xCA, 0x82, 0xC9, 0x7D, 0xFA, 0x59, 0x47, 0xF0, 0xAD, 0xD4, 0xA2, 0xAF, 0x9C, 0xA4, 0x72, 0xC0,
@@ -31,6 +31,7 @@ def count1s(x):
 
 # PREPARATION
 # -----------
+print("Start hypothesis:", time.time())
 
 # hypothesises of hamming weights for keys
 
@@ -41,6 +42,7 @@ for plain in range(256):
 
 # SIMULATE MEASUREMENTS
 # ---------------------
+print("Start simulation:", time.time())
 
 # number of choosen plain texts
 number_of_traces = 70000 # 30000 already gives some poor results
@@ -54,17 +56,17 @@ key_bytes = [random.randint(0,255) for i in range(S_box_count)]
 # picking random 16x8bit input data sets
 choosen_plain_texts = [[random.randint(0,255) for j in range(S_box_count)] for i in range(number_of_traces)]
 
-# calculating leakages: when hacking a specific input byte, all other byte substitutions represent algorithmic noise
+# simulating leakages: when hacking a specific input byte, all other byte substitutions represent algorithmic noise
 leakages = [0 for i in range(number_of_traces)]
 for i in range(number_of_traces):
     for j in range(len(key_bytes)):
             leakages[i] += count1s(s_box[key_bytes[j] ^ choosen_plain_texts[i][j]])
 
 print('real key bytes:', key_bytes)
-del(key_bytes) # no cheating ;)
 
 # HACK IT
 # -------
+print("Start hacking:", time.time())
 
 #calculating correlations with diverse hypothesises on assumed key values
 most_likely_key = []
@@ -81,3 +83,4 @@ for k in range(S_box_count):
     most_likely_key.append(current_likely_key)
 
 print('most likely keys:', most_likely_key)
+print("Done:", time.time())
