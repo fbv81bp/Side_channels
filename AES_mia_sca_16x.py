@@ -5,7 +5,7 @@
 # (*) As I interpret Shannon entropy based MIA, it is something like finding out if
 # the probability distribution ie. the frequencies of output samples relate to choosen
 # input data as expected. I left out logarithm for example, because it is a monothonic
-# function, summing up logarithms have to has the same correlation results as just plain
+# function, summing up logarithms has to have the same correlation results as just plain
 # numbers.
 
 # As for the results, roughly the same amount of samples are needed for a proper key
