@@ -6,7 +6,7 @@
 # the probability distribution ie. the frequencies of output samples relate to choosen
 # input data as expected. I left out logarithm for example, because it is a monothonic
 # function, summing up logarithms has to have the same correlation results as just plain
-# numbers. I rather gather  the corresponding leakage to every plain text byte. Now since
+# numbers. I rather gather the corresponding leakage to every plain text value. Now since
 # all leakages are between 0 to 8 per S-box output, while there are 256 possible plain
 # text options, the matching is between which plain text causes what amount of leakage
 # with a certain key assumed.
@@ -91,7 +91,7 @@ most_likely_keys = [None for i in range(S_box_count)]
 for key_idx in range(S_box_count):
     
     # create histograms for all S_box in- and output relations
-    histogram_like_stuff = [0 for i in range(256)]
+    histogram_like_stuff = [0 for i in range(256)] # neither histogram, nor a probability mass, as described in line 9
     for tr in range(number_of_traces):
         histogram_like_stuff[choosen_plain_texts[key_idx][tr]] += leakages[tr]
 
