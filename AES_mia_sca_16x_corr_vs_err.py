@@ -2,9 +2,9 @@
 # the gathered data's (not really*) probability mass function to the expected hypothesis.
 # The results can be seen on the PNG.
 
-# (*) Like mentioned before, I rather gather to every plain text byte the corresponding leakages
-# sum. Now since all leakages are between 0 to 8 per S-box, while there are 256 possible plain
-# text options and the matching is between which plain text causes what amount of leakage with
+# (*) Like mentioned before, I rather gather  the corresponding leakage to every plain text
+# byte. Now since all leakages are between 0 to 8 per S-box output, while there are 256 possible
+# plain text options, the matching is between which plain text causes what amount of leakage
 # with a certain key assumed.
 
 import random
