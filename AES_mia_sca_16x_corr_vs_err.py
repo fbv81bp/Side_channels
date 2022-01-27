@@ -2,8 +2,8 @@
 # the gathered data's (not really*) probability mass function to the expected hypothesis.
 # The results can be seen on the PNG.
 
-# (*) Like mentioned before, I rather gather  the corresponding leakage to every plain text
-# byte. Now since all leakages are between 0 to 8 per S-box output, while there are 256 possible
+# (*) Like mentioned before, I rather gather the corresponding leakage to every plain text
+# value. Now since all leakages are between 0 to 8 per S-box output, while there are 256 possible
 # plain text options, the matching is between which plain text causes what amount of leakage
 # with a certain key assumed.
 
@@ -82,7 +82,7 @@ for number_of_traces in [10000, 20000, 30000, 40000, 50000]:
     # loop through all keys
     for key_idx in range(S_box_count):
         
-        # create histograms for all S_box in- and output relations
+        # assigning leakages to their respective choosen plain text byte values and immediately summing up the corresponding leakage values
         histogram_like_stuff = [0 for i in range(256)]
         for tr in range(number_of_traces):
             histogram_like_stuff[choosen_plain_texts[key_idx][tr]] += leakages[tr]
