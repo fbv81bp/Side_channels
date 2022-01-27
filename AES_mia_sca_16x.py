@@ -90,7 +90,7 @@ most_likely_keys = [None for i in range(S_box_count)]
 # loop through all keys
 for key_idx in range(S_box_count):
     
-    # create histograms for all S_box in- and output relations
+    # assigning leakages to their respective choosen plain text byte values and immediately summing up the corresponding leakage values
     histogram_like_stuff = [0 for i in range(256)] # neither histogram, nor a probability mass, as described in line 9
     for tr in range(number_of_traces):
         histogram_like_stuff[choosen_plain_texts[key_idx][tr]] += leakages[tr]
