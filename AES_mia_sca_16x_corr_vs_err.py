@@ -1,6 +1,11 @@
-# In this implementation I compared max. correlational and min. error based comparison
-# of the gathered data's probability mass function to the expected hypothesis. The results
-# can be seen on the PNG.
+# In this implementation I compared max. correlational and min. error based matching of
+# the gathered data's (not really*) probability mass function to the expected hypothesis.
+# The results can be seen on the PNG.
+
+# (*) Like mentioned before, I rather gather to every plain text byte the corresponding leakages
+# sum. Now since all leakages are between 0 to 8 per S-box, while there are 256 possible plain
+# text options and the matching is between which plain text causes what amount of leakage with
+# with a certain key assumed.
 
 import random
 
