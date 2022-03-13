@@ -90,7 +90,7 @@ most_likely_keys = [None for i in range(S_box_count)]
 # loop through all keys
 for key_idx in range(S_box_count):
     
-    # assigning leakages to their respective choosen plain text byte values and immediately summing up the corresponding leakage values
+    # assigning leakages to their respective(*line 104) choosen plain text byte values and simultaneously summing up the corresponding leakage values
     histogram_like_stuff = [0 for i in range(256)] # neither histogram, nor a probability mass, as described in line 9
     for tr in range(number_of_traces):
         histogram_like_stuff[choosen_plain_texts[key_idx][tr]] += leakages[tr]
@@ -101,6 +101,7 @@ for key_idx in range(S_box_count):
     for assumed_key in range(256):
         correlation = 0
         for h2h_idx in range(256):
+            # (*line 93) it is vital, that all S-boxes have different and known choosen plain text series, which result in different "histograms"
             correlation += hypothesises[assumed_key][h2h_idx] * histogram_like_stuff[h2h_idx]
         if correlation > highest_correlation:
             highest_correlation = correlation
