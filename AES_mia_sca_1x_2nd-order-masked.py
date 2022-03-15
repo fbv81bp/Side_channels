@@ -77,9 +77,9 @@ for orig_key in orig_keys:
             for hamming in range(17):
                 # the key just permutes the hypothesis distribution, and the best matching permutation should signal the valid key
                 correlation += leakages[choosen_plain][hamming] * dists[choosen_plain ^ key][hamming]
-            if correlation > highest_corr:
-                highest_corr = correlation
-                best_guess = key
+        if correlation > highest_corr:
+            highest_corr = correlation
+            best_guess = key
     key_guesses.append(best_guess)
 
 print('Original keys:', orig_keys)
