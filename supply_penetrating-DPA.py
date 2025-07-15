@@ -8,11 +8,8 @@ sbox = [i for i in range(sbox_size)]
 for _ in range(20 * sbox_size):
     r = rdi(0, len(sbox) - 1)
     sbox[0], sbox[r] = sbox[r], sbox[0]
-
-# print(sbox)
-
+    
 # collect data with extremal power consumption according to hypothetical keys
-
 keys = sbox_size
 
 # collect 16 data input for every possible key with minimal and maximal hamming weights
@@ -36,12 +33,11 @@ for key in range(keys):
             extreme_data_per_key[key][1].append(data_in) # maximal Hamming weights
 
 # simulate power consumptions with a particular key
-
 real_key = rdi(0,255)
 
 trace_length = 1000
 
-# adjusts period in power consumtion so that it may penetrate supply filtering(!)
+# adjust period in power consumption so that it may penetrate supply filtering(!!!)
 period = 100
 
 power_traces = [[] for _ in range (keys)]
