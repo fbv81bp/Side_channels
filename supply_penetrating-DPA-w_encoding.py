@@ -52,6 +52,7 @@ encoding = [0,1,1,0,1,1,0,0,0,1,0]
 # which the likely don't, because it is expensive, and anyway who would have physical
 # access to their stuff in a guarded facility? (?!)
 # https://youtu.be/i2ep3QZQ4vM?si=BZt72MbOWZbVcqkS
+# "its an arms race, nothing but an arms race, hits you when its tool late"
 
 power_traces = [[] for _ in range (keys)]
 
