@@ -44,6 +44,13 @@ period = 50
 # is as found - much futher improvements might add a simple LFSR so that the observation
 # isn't so obvious for the system owner if they were to expect the attack... etc.
 encoding = [0,1,1,0,1,1,0,0,0,1,0]
+# ...like imagine poisoning stolen files on darknet, like some pdf-s on libgen for
+# example, with additional data patterns, that while being encrypted by a hard disk
+# encryption tool with AES-NI, some other software - stolen too - monitors unpriviliged
+# power consumption data too, and logs the disk's master key in some 'bad sector' maybe
+# same goes for all encryoted clouds that don't use DPA protected crypto primitives,
+# which the likely don't, because it is expensive, and anyway who would have physical
+# access to their stuff in a guarded facility? (?!)
 
 power_traces = [[] for _ in range (keys)]
 
