@@ -44,10 +44,13 @@ period = 50
 # is as found - much futher improvements might add a simple LFSR so that the observation
 # isn't so obvious for the system owner if they were to expect the attack... etc.
 encoding = [0,1,1,0,1,1,0,0,0,1,0]
-# ...like imagine poisoning stolen files on darknet, like some pdf-s on libgen for
+# ...like imagine poisoning stolen files on darknet, like some pdf*-s on libgen for
 # example, with additional data patterns, that while being encrypted by a hard disk
 # encryption tool with AES-NI, some other software - stolen too - monitors unpriviliged
-# power consumption data too, and logs the disk's master key in some 'bad sector' maybe
+# power consumption data too, and logs the disk's master key in some 'bad sector' maybe;
+# (*) not to mentioned zip-bombs that decompress to such patterns which if written to
+# an encrypted disk, may ease obtaining the whole disk's master key, best case just
+# suggesting to re-cipher all the data (psycho-hacking-warfare) for safety reasons
 
 # https://youtu.be/i2ep3QZQ4vM?si=BZt72MbOWZbVcqkS
 # "its an arms race, nothing but an arms race, hits you when its tool late"
