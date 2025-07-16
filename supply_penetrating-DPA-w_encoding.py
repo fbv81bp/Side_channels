@@ -39,6 +39,10 @@ trace_length = 2000
 period = 50
 
 # making the power consumption to have a pattern that is really obvious if recognized
+# perhaps this could even be the 8b/10b encoded pattern of the key assumption, so that
+# the appearing, arising shape in the power trace directly signals what the real key
+# is as found - much futher improvements might add a simple LFSR so that the observation
+# isn't so obvious for the system owner if they were to expect the attack... etc.
 encoding = [0,1,1,0,1,1,0,0,0,1,0]
 
 power_traces = [[] for _ in range (keys)]
