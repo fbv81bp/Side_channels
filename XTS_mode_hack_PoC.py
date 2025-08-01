@@ -44,7 +44,7 @@ bit unreliable, but we are going to know all the XOR differences between all key
 we will have an unknown 'offset' like value, namely what may be an actual key byte anywhre, that is then XOR-ed
 to have all other key bytes: this makes up 6x256 trials measurent sequences, and 1x256 key trials in the end!
 
-one may also search for multiple key pairs in paralell, by shifting the correlation search by multiples of 8:
+one may also search for multiple key pairs in parallel, by shifting the correlation search by multiples of 8:
 by 1x for correlation between any neighbouring bytes, by 2x for correlation between any two bytes tha are 2nd
 neighbours to one another and so on
 
