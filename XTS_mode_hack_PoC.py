@@ -33,20 +33,24 @@ left over most of the key space...
 
 so once we get a high correlation with a shift of 8, we guessed the two bytes well
 
-btw. any ofthe 65536 will be provide this high self correlation of the power trace, that unmasks the two key
+btw. any of the 65536 will be provide this high self correlation of the power trace, that unmasks the two key
 bytes to be identical, not just both 0... so there will be 256 possible values for every two bytes left, which
 can then be iterated by shifting the guess window by just 1 byte...
 
-well giving it more thoughts, this method searches for the XOR difference between consecutive key bytes, so
+well giving it more thoughts, this method searches for the XOR difference between consecutive key bytes, sooo...
 a 256 strong per key-byte-pair search space is enough! then what remains unknown is the last key byte's relation
 to the MSB byte, the LSB, as we do not know when the Galois field modulus is XOR-ed on its mask, so that is a
 bit unreliable, but we are going to know all the XOR differences between all key bytes from MSB downto LSB, and
 we will have an unknown 'offset' like value, namely what may be an actual key byte anywhre, that is then XOR-ed
 to have all other key bytes: this makes up 6x256 trials measurent sequences, and 1x256 key trials in the end!
 
+one may also search for multiple key pairs in paralell, by shifting the correlation search by multiples of 8:
+by 1x for correlation between any neighbouring bytes, by 2x for correlation between any two bytes tha are 2nd
+neighbours to one another and so on
+
 '''
 
-# Proof of Concept of the correlation working
+# PROOF OF CONCEPT OF THE CORRELATION WORKING
 
 trace_length = 520 # 512 + 8
 trace = []
@@ -88,7 +92,7 @@ for shift in range(1,16):
 for s in shift_hist:
     print(s)
 
-# Test that there is no correlation if the key bytes weren't XOR-ed to match
+# TEST THAT THERE IS NO CORRELATION IF THE KEY BYTES WEREN'T XOR-ED TO MATCH
 
 mismatch = rdi(0,255)
 print(mismatch)
