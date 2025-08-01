@@ -23,17 +23,28 @@ def hamming_weight(x):
         x //= 2
     return i
 
-# instead of guessing 1 single key byte, we begin with two, which takes 65536 combinations, which is still
-# bearable; in case the 2 byte plain text would knock out the key bytes at the given position to zero, then
-# we get at every 8th encryption step, the higher sub-bytes will consume just as much energy, as the lower
-# sub-bytes 8 encryptions before: that is because at every step, the mask is multiplied by just two, ie. shifed
-# left over most of the key space...
+'''
 
-# so once we get a high correlation with a shift of 8, we guessed the two bytes well
+instead of guessing 1 single key byte, we begin with two, which takes 65536 combinations, which is still
+bearable; in case the 2 byte plain text would knock out the key bytes at the given position to zero, then
+we get at every 8th encryption step, the higher sub-bytes will consume just as much energy, as the lower
+sub-bytes 8 encryptions before: that is because at every step, the mask is multiplied by just two, ie. shifed
+left over most of the key space...
 
-# btw. any ofthe 65536 will be provide this high self correlation of the power trace, that unmasks the two key
-# bytes to be identical, not just both 0... so there will be 256 possible values for every two bytes left, which
-# can then be iterated by shifting the guess window by just 1 byte...
+so once we get a high correlation with a shift of 8, we guessed the two bytes well
+
+btw. any ofthe 65536 will be provide this high self correlation of the power trace, that unmasks the two key
+bytes to be identical, not just both 0... so there will be 256 possible values for every two bytes left, which
+can then be iterated by shifting the guess window by just 1 byte...
+
+well giving it more thoughts, this method searches for the XOR difference between consecutive key bytes, so
+a 256 strong per key-byte-pair search space is enough! then what remains unknown is the last key byte's relation
+to the MSB byte, the LSB, as we do not know when the Galois field modulus is XOR-ed on its mask, so that is a
+bit unreliable, but we are going to know all the XOR differences between all key bytes from MSB downto LSB, and
+we will have an unknown 'offset' like value, namely what may be an actual key byte anywhre, that is then XOR-ed
+to have all other key bytes: this makes up 6x256 trials measurent sequences, and 1x256 key trials in the end!
+
+'''
 
 # Proof of Concept of the correlation working
 
