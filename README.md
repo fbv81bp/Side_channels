@@ -6,3 +6,6 @@
 * AES_mia_sca_corr_vs_err.py: testing if looking for minimal error between distributions would yield any better results than for maximal correlation. (It doesn't.)
 * AES_mia_sca_16x_Hweight.py: brings already more similar results to what is described about mutual information analysis - it takes lots of computations, ~24M steps to guess any single key, yet ONLY 16 times, roughly 500 samples long traces are enough in case of 16 S-boxes to guess the keys, even if all power consumptions are measured together, meaning all the remaining 15 S-boxes' consumptions create algorithmic noise(!).
 * AES_mia_sca_1x_2nd-order-masked.py is a MIA like hacking of 2nd order masked AES S-box scheme. It uses the same choosen plain text sequence everal times to averege out the effect of the random mask, then correlates the Hamming weight distributions gained to the ones previously set up as hypothesises.
+* supply_penetrating-DPA.py is an idea that I developed based on differential power analysis, but instead of separating traces, I separated inputs so, that the output will have a certain power trace embedded into it
+* supply_penetrating-DPA-w_encoding.py is the same as the previous, but the shape embedded into the output can be manipulated in order for it to be easier differentiated from noise
+* 
