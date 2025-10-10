@@ -8,4 +8,4 @@
 * AES_mia_sca_1x_2nd-order-masked.py is a MIA like hacking of 2nd order masked AES S-box scheme. It uses the same choosen plain text sequence everal times to averege out the effect of the random mask, then correlates the Hamming weight distributions gained to the ones previously set up as hypothesises.
 * supply_penetrating-DPA.py is an idea that I developed based on differential power analysis, but instead of separating traces, I separated inputs so, that the output will have a certain power trace embedded into it
 * supply_penetrating-DPA-w_encoding.py is the same as the previous, but the shape embedded into the output can be manipulated in order for it to be easier differentiated from noise
-* 
+* XTS_mode_hack_PoC.py shows a proof of concept of hacking XTS hard disk encryption in a way similar to supply penetrating DPA so, that just a specially formatted file needs to be saved on the disk, while the encryption process' power consumption can be measure: it abuses the Galois multiplication by 2 which is a simple shift on most bytes, which is then capable of creating autocorrelation in the power trace at every 8th shift(!)
