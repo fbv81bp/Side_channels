@@ -33,20 +33,22 @@ left over most of the key space...
 
 so once we get a high correlation with a shift of 8, we guessed the two bytes well
 
-btw. any of the 65536 will be provide this high self correlation of the power trace, that unmasks the two key
-bytes to be identical, not just both 0... so there will be 256 possible values for every two bytes left, which
-can then be iterated by shifting the guess window by just 1 byte...
+btw. any of the 65536 will provide this high self correlation of the power trace, that unmasks the two keys
+byt to be identical, not just both 0... so there will be 256 possible values for every two bytes left, which
+can then can be iterated by shifting the guess window by just 1 byte...
 
 well giving it more thoughts, this method searches for the XOR difference between consecutive key bytes, sooo...
-a 256 strong per key-byte-pair search space is enough! then what remains unknown is the last key byte's relation
-to the MSB byte, the LSB, as we do not know when the Galois field modulus is XOR-ed on its mask, so that is a
+a 256 strong per key-byte-pair search space is enough! then what remains unknown, is the last key byte's relation
+to the MSB byte, the LSB's, as we do not know when the Galois field modulus is XOR-ed on it as mask, so that is a
 bit unreliable, but we are going to know all the XOR differences between all key bytes from MSB downto LSB, and
-we will have an unknown 'offset' like value, namely what may be an actual key byte anywhre, that is then XOR-ed
-to have all other key bytes: this makes up 6x256 trials measurent sequences, and 1x256 key trials in the end!
+we will have an unknown 'offset' like value, namely what may be the actual key bytes anywhere, that are then XOR-ed
+to have all other key bytes: this makes up 7x256 trial measurent sequences, and 1x256 trials for offset in the end!
 
 one may also search for multiple key pairs in parallel, by shifting the correlation search by multiples of 8:
-by 1x for correlation between any neighbouring bytes, by 2x for correlation between any two bytes tha are 2nd
-neighbours to one another and so on
+by 1x for correlation between any neighbouring bytes, by 2x for correlation between any two bytes that are 2nd
+neighbours to one another and so on, this can make a single trace more useful, and speed up the hacking process,
+if the plain texts are constructed with some wise combinatoric whiz in mind - which this code snippet does not
+elaborate on
 
 '''
 
