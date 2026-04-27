@@ -1,6 +1,9 @@
 '''
 
-shows a proof of concept of hacking XTS hard disk encryption in a way similar to supply penetrating DPA so, that just a specially formatted file needs to be saved on the disk, while the encryption process' power consumption is being measured: it abuses that the Galois multiplication by 2 which is a simple shift on most bytes, which is then capable of creating autocorrelation in the power trace at every 8th shift(!)
+Shows a proof of concept of hacking XTS hard disk encryption in a way similar to supply penetrating DPA
+so, that just a specially formatted file needs to be saved on the disk, while the encryption process'
+power consumption is being measured: it abuses that the Galois multiplication by 2 which is a simple shift
+on most bytes, which is then capable of creating autocorrelation in the power trace at every 8th shift(!)
 
 '''
 
