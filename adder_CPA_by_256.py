@@ -1,5 +1,5 @@
 '''
-This is a very simplistic basic test of a concept about hacking modular adders:
+This is a very simplistic basic test of my concept about hacking modular adders:
 adders cause a monothonic and circulat "delay" in a monothonically increasing
 input sequence. Thus if we manage to drive the adder's controlled input with a
 monothon increasing input sequence, then the leakage's delay compared to the
