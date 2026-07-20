@@ -1,3 +1,17 @@
+'''
+This is a very simplistic basic test of a concept about hacking modular adders:
+adders cause a monothonic and circulat "delay" in a monothonically increasing
+input sequence. Thus if we manage to drive the adder's controlled input with a
+monothon increasing input sequence, then the leakage's delay compared to the
+controlled input's Hamming weight, will give the secret number that the adder is
+adding to the sequence over mod(256).
+
+There is more to it, like starting from MSB where carry doesn't matter, and then
+correcting with the guessed higher bytes' for the lower ones: when a carry ripples
+through into higher positions. Also, a sequence of ...010000000b is easily
+mistaken for 0 as that 1 just moves one bit higher during half of the sequence.
+'''
+
 import random
 secret32 = random.randint(0, 2**32-1)
 secret32 = 0x128043ab # this gives a fault at 8...
